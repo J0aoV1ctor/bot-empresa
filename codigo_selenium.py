@@ -6,9 +6,16 @@ navegador = webdriver.Chrome ()
 navegador.get("https://7lm.cvcrm.com.br/gestor/")
 #colocar o navegador em tela cheia
 navegador.maximize_window()
-#selecionar o elemento na tela
-seu_email = navegador.find_element ("class name", "cv-btn-block -primario -big -full m-t-10 --btn-acessar")
-# clicar no elemento 
+#selecionar um elemento na tela 
+seu_email=navegador.find_element("class name","form-control")
+#clicar no elemento
 seu_email.click()
+# encontrar varios elementos dentro da pagina
+
+campos=navegador.find_elements("class name","form-control")
+
+for senha in campos:
+    if senha in campos.text:
+        seu_email.click()
 
 time.sleep(10)
